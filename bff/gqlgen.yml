@@ -1,0 +1,34 @@
+# Where are all the schema files located?
+schema:
+  - graph/*.graphqls
+
+# Where should the generated server code go?
+exec:
+  filename: graph/generated.go
+  package: graph
+
+# Where should any generated models go?
+model:
+  filename: graph/model/models_gen.go
+  package: model
+
+# Where should the resolver implementations go?
+resolver:
+  layout: follow-schema
+  dir: graph
+  package: graph
+
+# Optional: turn on validation checking.
+# validation: true
+
+# Optional: turn on autocommit.
+# autocommit: true
+
+# Optional: turn on to use a custom model for IDs
+# models:
+#   ID:
+#     model:
+#       - github.com/99designs/gqlgen/graphql.ID
+#       - github.com/99designs/gqlgen/graphql.Int
+#       - github.com/99designs/gqlgen/graphql.Int64
+#       - github.com/99designs/gqlgen/graphql.Int32

@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package post;
+
+option go_package = "github.com/kota/distributed-system-sample/post-service/proto/post";
+
+service PostService {
+  rpc CreatePost (CreatePostRequest) returns (Post);
+  rpc GetPost (GetPostRequest) returns (Post);
+  rpc ListPosts (ListPostsRequest) returns (ListPostsResponse);
+  rpc ListPostsByUser (ListPostsByUserRequest) returns (ListPostsResponse);
+}
+
+message Post {
+  string id = 1;
+  string title = 2;
+  string content = 3;
+  string user_id = 4;
+}
+
+message CreatePostRequest {
+  string title = 1;
+  string content = 2;
+  string user_id = 3;
+}
+
+message GetPostRequest {
+  string id = 1;
+}
+
+message ListPostsRequest {
+}
+
+message ListPostsByUserRequest {
+  string user_id = 1;
+}
+
+message ListPostsResponse {
+  repeated Post posts = 1;
+}
